@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 8000;
 
 // CORS Setup (adjust origin in production)
 app.use(cors({
-origin: 'http://localhost:5173', // Using env for production URL
+origin:['https://smallblog.onrender.com','http://localhost:5173'], // Using env for production URL
     credentials: true,
 }));
 
