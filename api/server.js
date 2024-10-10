@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 8000;
 
 // Middleware Setup
 app.use(cors({
-    origin:'http://localhost:5173',
+    origin:'smallblog-beta.vercel.app',
     credentials: true,
 }));
 
