@@ -12,7 +12,7 @@ import {Edit} from "./pages/Edit";
 import DetailsPage from "./pages/DetailsPage";
 
 // Set Axios default baseURL and credentials
-axios.defaults.baseURL ="http://localhost:8000" 
+axios.defaults.baseURL = "http://localhost:8000";
 axios.defaults.withCredentials = true;
 
 function App() {
