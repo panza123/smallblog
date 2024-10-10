@@ -28,23 +28,25 @@ app.use('/', authRoutes);
 app.use('/', blogRoutes);
 
 // Serve static files in production
+
 if (process.env.NODE_ENV === 'production') {
-    // Fix for __dirname in ES modules
+    // Serving static files for production
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
-
+  
     app.use(express.static(path.join(__dirname, 'client/dist')));
-
-    // Catch-all route to serve index.html for frontend routing
+  
+    // Handle SPA routing (React routes)
     app.get("*", (req, res) => {
         res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
-    })
-}else{
-app.get("/", (req, res) => {
-    res.send("Server is ready");
-})
-}
-
+    });
+  } else {
+    // Development response
+    app.get("/", (req, res) => {
+        res.send("Server is ready");
+    });
+  }
+  
 // Error Handling Middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
